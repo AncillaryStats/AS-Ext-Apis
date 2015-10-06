@@ -46,9 +46,9 @@ def get_players():
 def get_trends():
     """Returns sorted list of players with name occurances (if > 0)"""
     titles = top_titles()
+    players = get_players()
     trending = []
 
-    players = get_players()
     for name in players:
         count = titles.count(name)
         if count > 0:
@@ -60,4 +60,3 @@ def get_trends():
     return sorted_trending
 
 
-get_trends()
