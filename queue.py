@@ -1,9 +1,7 @@
-import redis
-
 class RedisQueue(object):
     """Redis backed queue"""
-    def __init__(self, name, url_conn, namespace='queue'):
-        self.__db=redis.Redis.from_url(url_conn, max_connections=1)
+    def __init__(self, name, db, namespace='queue'):
+        self.__db=db
         self.key = '%s:%s' % (namespace, name)
 
     def is_empty(self):
