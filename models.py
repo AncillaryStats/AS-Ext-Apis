@@ -36,11 +36,11 @@ class NFL_Player_2015(Base):
     team = Column(String)
     position = Column(String)
 
-    def __init__(self):
-        self.name = name
-        self.number = number
-        self.team = team
-        self.position = position
+    # def __init__(self):
+    #     self.name = name
+    #     self.number = number
+    #     self.team = team
+    #     self.position = position
 
 
 class NFL_QB_Game_2015(Base):

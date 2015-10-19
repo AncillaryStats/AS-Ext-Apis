@@ -3,6 +3,7 @@ import config
 import models
 from sqlalchemy.orm import sessionmaker
 
+# Params and headers for Reddit API requests
 params = { 'limit': '100' }
 headers = { 'user-agent': 'ansel01@gmail.com '}
 
@@ -29,7 +30,7 @@ def top_titles():
 def get_players():
     """Gets player listings from db"""
     engine = models.db_connect()
-    # models.create_tables(engine)
+    models.create_tables(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
     players = {}
@@ -40,8 +41,6 @@ def get_players():
     session.close()
 
     return players
-
-# print(trending_players())
 
 def get_trends():
     """Returns sorted list of players with name occurances (if > 0)"""
@@ -56,7 +55,6 @@ def get_trends():
             trending.append(trending_player)
 
     sorted_trending = sorted(trending, key=lambda x: x['count'], reverse=True)
-
     return sorted_trending
 
 
